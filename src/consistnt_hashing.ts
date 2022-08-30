@@ -1,9 +1,7 @@
-import {group} from 'console';
 import {h2d} from './utils/hash';
 
-/* eslint @typescript-eslint/no-unused-vars: "off" */
 /* eslint @typescript-eslint/no-var-requires: "off" */
-/* eslint @typescript-eslint/no-explicit-any: "off" */
+
 const keccak = require('@cafeca/keccak');
 
 // isSelected is used for checkbox
