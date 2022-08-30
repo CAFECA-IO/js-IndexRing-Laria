@@ -22,7 +22,6 @@ class ConsistentHashing {
   constructor(elementsList: string[], groupSize: number | null, salt = 0) {
     // set nodeElements
     this.nodeElements = elementsList;
-
     const resultMap: {[key: string]: string} = {};
 
     // set GroupSize and salt from training
@@ -81,7 +80,6 @@ class ConsistentHashing {
     }
 
     // set salt
-
     for (let i = 0; i < elements.length; i++) {
       const originalHash = new keccak('keccak256').update(elements[i], 'utf8').digest('hex');
       const hash: number = h2d(originalHash);
@@ -105,7 +103,6 @@ class ConsistentHashing {
         }
         i = 0;
         count = count + 1;
-        // need data to try it
         if (count > groupSize) {
           groupSize = groupSize * 2;
           continue;
@@ -124,11 +121,9 @@ class ConsistentHashing {
     } else {
       originalHash = new keccak('keccak256').update(element + this.salt, 'utf8').digest('hex');
     }
-
     // return hash
     const hash: number = h2d(originalHash);
     const result = hash % this.groupSize;
-
     // return group index
     return result;
   }
